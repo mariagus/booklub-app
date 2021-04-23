@@ -4,8 +4,8 @@ let url: any = new URL("https://openlibrary.org/search.json");
 
 const handleSubmit = () => {
   document.querySelector("ul").innerHTML = "";
-  let authorVal: string = document.querySelector("#author").value;
-  let titleVal: string = document.querySelector("#title").value;
+  let authorVal = document.querySelector<HTMLInputElement>("#author").value;
+  let titleVal = document.querySelector<HTMLInputElement>("#title").value;
 
   url.search = new URLSearchParams({
     title: titleVal,
