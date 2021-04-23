@@ -4,13 +4,19 @@ let url: any = new URL("https://openlibrary.org/search.json");
 
 const handleSubmit = () => {
   document.querySelector("ul").innerHTML = "";
-  let authorVal = document.querySelector<HTMLInputElement>("#author").value;
   let titleVal = document.querySelector<HTMLInputElement>("#title").value;
+  let authorVal = document.querySelector<HTMLInputElement>("#author").value;
 
-  url.search = new URLSearchParams({
-    title: titleVal,
-    author: authorVal,
-  });
+  let searchObject = {};
+
+  if (titleVal) {
+    searchObject["title"] = titleVal;
+  }
+  if (authorVal) {
+    searchObject["author"] = authorVal;
+  }
+
+  url.search = new URLSearchParams(searchObject);
 
   getBook();
 };
@@ -28,6 +34,7 @@ const getBook = async () => {
   let data = await fetch(url);
   let result = await data.json();
 
+  //@ts-ignore;
   const template = Handlebars.compile(hbsData);
   const html = template(result);
   document.querySelector("ul").innerHTML = html;

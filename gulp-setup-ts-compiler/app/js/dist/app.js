@@ -38,12 +38,16 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 var url = new URL("https://openlibrary.org/search.json");
 var handleSubmit = function () {
     document.querySelector("ul").innerHTML = "";
-    var authorVal = document.querySelector("#author").value;
     var titleVal = document.querySelector("#title").value;
-    url.search = new URLSearchParams({
-        title: titleVal,
-        author: authorVal,
-    });
+    var authorVal = document.querySelector("#author").value;
+    var searchObject = {};
+    if (titleVal) {
+        searchObject["title"] = titleVal;
+    }
+    if (authorVal) {
+        searchObject["author"] = authorVal;
+    }
+    url.search = new URLSearchParams(searchObject);
     getBook();
 };
 var submit = document.querySelector("#submit");
