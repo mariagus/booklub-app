@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>BooKlub</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"
+      integrity="sha512-RNLkV3d+aLtfcpEyFG8jRbnWHxUqVZozacROI4J2F1sTaDqo1dPQYs01OMi1t1w9Y2FdbSCDSQ2ZVdAC8bzgAg=="
+      crossorigin="anonymous"
+    ></script>
+    <script id="template" type="text/x-handlebars-templace"></script>
+    <script src="js/dist/app.js" defer></script>
+  </head>
+  <body>
+    <h1 class="appName">BooKlub</h1>
+    <form>
+      <label for="author">Author:</label>
+      <input
+        type="text"
+        id="author"
+        name="author"
+        placeholder="eg. Charles Dickens"
+      />
+      <label for="title">Title:</label>
+      <input type="text" id="title" name="title" placeholder="eg. Hard Times" />
+      <input type="submit" id="submit" value="submit" />
+    </form>
+    <ul></ul>
+  </body>
+</html>

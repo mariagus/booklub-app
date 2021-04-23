@@ -1,5 +1,68 @@
+@import url("https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poiret+One&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
 body {
-  display: block;
-  color: red;
-  border: 1px;
+  font-family: "Poiret One", sans-serif;
+  text-align: center;
+}
+
+.appName {
+  text-align: center;
+  font-size: 5rem;
+  font-family: "Cabin Sketch", cursive;
+}
+
+ul {
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+li {
+  padding: 2%;
+  border: solid 1px rgb(180, 180, 180);
+  margin: 2%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+img {
+  height: 300px;
+}
+
+input {
+  font-family: "Poiret One", sans-serif;
+  font-size: 1rem;
+  padding: 0.8rem;
+  border-style: none;
+}
+
+.add {
+  padding: 1rem;
+}
+
+.bookCoverContainer {
+  height: 50%;
+}
+
+.bookInfo {
+  text-align: center;
+  height: 50%;
+}
+
+@media only screen and (max-width: 900px) {
+  ul {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  ul {
+    grid-template-columns: 1fr;
+  }
 }
