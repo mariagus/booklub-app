@@ -6,7 +6,9 @@
     <div class="bookInfo"></div>
     <h1>{{title}}</h1>
     <h2>by {{author_name}}</h2>
+    {{#if first_publish_year}}
     <h2>First published: {{first_publish_year}}</h2>
+    {{/if}}
     <button class="add">Add to Library</button>
 </li>
      {{/if}}
