@@ -102,10 +102,12 @@ var addToLibrary = function () {
     });
 };
 var displayFavorites = function () { return __awaiter(void 0, void 0, void 0, function () {
-    var data, result, template, html;
+    var title, data, result, template, html;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4, fetch("myLibrary.hbs")];
+            case 0:
+                title = (document.querySelector(".myLibTitle").style.display = "block");
+                return [4, fetch("myLibrary.hbs")];
             case 1:
                 data = _a.sent();
                 return [4, data.text()];

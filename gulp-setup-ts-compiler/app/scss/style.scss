@@ -5,15 +5,39 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: "Poiret One", sans-serif;
+form {
   text-align: center;
+}
+
+#favorites {
+  text-align: center;
+}
+
+body {
+  margin: 0;
+  font-family: "Poiret One", sans-serif;
+}
+
+nav {
+  padding: 1rem;
+  background-color: black;
+}
+nav a {
+  color: white;
+  text-align: left;
+  font-size: 1.5rem;
+  font-family: "Poiret One", sans-serif;
+  text-decoration: none;
 }
 
 .appName {
   text-align: center;
   font-size: 5rem;
   font-family: "Cabin Sketch", cursive;
+}
+
+.myLibTitle {
+  display: none;
 }
 
 ul {

@@ -71,6 +71,9 @@ const addToLibrary = () => {
 };
 
 const displayFavorites = async () => {
+  let title = (document.querySelector<HTMLElement>(
+    ".myLibTitle"
+  ).style.display = "block");
   let data = await fetch("myLibrary.hbs");
   let result = await data.text();
 
