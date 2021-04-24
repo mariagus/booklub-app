@@ -114,7 +114,16 @@ var displayFavorites = function () { return __awaiter(void 0, void 0, void 0, fu
                 template = Handlebars.compile(result);
                 html = template(favorites);
                 document.querySelector("#myFavorites").innerHTML = html;
+                handleDelete();
                 return [2];
         }
     });
 }); };
+var handleDelete = function () {
+    var deleteBook = document.querySelectorAll(".delete");
+    deleteBook.forEach(function (button) {
+        button.addEventListener("click", function (event) {
+            event.target.parentNode.remove();
+        });
+    });
+};

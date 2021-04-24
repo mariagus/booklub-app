@@ -44,7 +44,7 @@ const getBook = async () => {
 };
 
 const addToLibrary = () => {
-  let btn = document.querySelectorAll(".add");
+  let btn = document.querySelectorAll<HTMLElement>(".add");
   btn.forEach((button) => {
     button.addEventListener("click", (event: Event) => {
       if ((event.target as Element).textContent !== "Added") {
@@ -78,4 +78,16 @@ const displayFavorites = async () => {
   const template = Handlebars.compile(result);
   const html = template(favorites);
   document.querySelector("#myFavorites").innerHTML = html;
+
+  handleDelete();
+};
+
+const handleDelete = () => {
+  let deleteBook = document.querySelectorAll<HTMLElement>(".delete");
+  deleteBook.forEach((button) => {
+    button.addEventListener("click", (event: Event) => {
+      //@ts-ignore;
+      (event.target as Element).parentNode.remove();
+    });
+  });
 };
