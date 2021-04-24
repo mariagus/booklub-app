@@ -36,6 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 var url = new URL("https://openlibrary.org/search.json");
+var favorites = { data: [] };
 var handleSubmit = function () {
     document.querySelector("ul").innerHTML = "";
     var titleVal = document.querySelector("#title").value;
@@ -73,7 +74,46 @@ var getBook = function () { return __awaiter(void 0, void 0, void 0, function ()
                 result = _a.sent();
                 template = Handlebars.compile(hbsData);
                 html = template(result);
-                document.querySelector("ul").innerHTML = html;
+                document.querySelector("#searchResults").innerHTML = html;
+                addToLibrary();
+                return [2];
+        }
+    });
+}); };
+var addToLibrary = function () {
+    var btn = document.querySelectorAll(".add");
+    btn.forEach(function (button) {
+        button.addEventListener("click", function (event) {
+            if (event.target.textContent !== "Added") {
+                event.target.textContent = "Added";
+                favorites.data.push({
+                    cover_i: event.target.parentNode
+                        .querySelector("img")
+                        .getAttribute("src"),
+                    title: event.target.parentNode.querySelector(".title")
+                        .textContent,
+                    author: event.target.parentNode.querySelector(".author")
+                        .textContent,
+                    first_published: event.target.parentNode.querySelector(".firstPublished").textContent,
+                });
+                displayFavorites();
+            }
+        });
+    });
+};
+var displayFavorites = function () { return __awaiter(void 0, void 0, void 0, function () {
+    var data, result, template, html;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0: return [4, fetch("myLibrary.hbs")];
+            case 1:
+                data = _a.sent();
+                return [4, data.text()];
+            case 2:
+                result = _a.sent();
+                template = Handlebars.compile(result);
+                html = template(favorites);
+                document.querySelector("#myFavorites").innerHTML = html;
                 return [2];
         }
     });

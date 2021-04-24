@@ -1,0 +1,11 @@
+{{#each data}}
+<li>
+    <div class="bookCoverContainer"></div>
+    <img src={{cover_i}} alt={{author}}/>
+    <div class="bookInfo"></div>
+    <h1 class="title">{{title}}</h1>
+    <h2 class="author">by {{author}}</h2>
+    <h2 class="firstPublished">First published: {{first_published}}</h2>
+    <button class="delete">Delete</button>
+</li>
+{{/each}}

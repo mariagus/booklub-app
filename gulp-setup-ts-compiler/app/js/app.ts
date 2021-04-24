@@ -1,6 +1,7 @@
 "use strict";
 
 let url: any = new URL("https://openlibrary.org/search.json");
+let favorites: any = { data: [] };
 
 const handleSubmit = () => {
   document.querySelector("ul").innerHTML = "";
@@ -37,5 +38,44 @@ const getBook = async () => {
   //@ts-ignore;
   const template = Handlebars.compile(hbsData);
   const html = template(result);
-  document.querySelector("ul").innerHTML = html;
+  document.querySelector("#searchResults").innerHTML = html;
+
+  addToLibrary();
+};
+
+const addToLibrary = () => {
+  let btn = document.querySelectorAll(".add");
+  btn.forEach((button) => {
+    button.addEventListener("click", (event: Event) => {
+      if ((event.target as Element).textContent !== "Added") {
+        (event.target as Element).textContent = "Added";
+        favorites.data.push({
+          cover_i: (event.target as Element).parentNode
+            .querySelector("img")
+            .getAttribute("src"),
+
+          title: (event.target as Element).parentNode.querySelector(".title")
+            .textContent,
+
+          author: (event.target as Element).parentNode.querySelector(".author")
+            .textContent,
+
+          first_published: (event.target as Element).parentNode.querySelector(
+            ".firstPublished"
+          ).textContent,
+        });
+        displayFavorites();
+      }
+    });
+  });
+};
+
+const displayFavorites = async () => {
+  let data = await fetch("myLibrary.hbs");
+  let result = await data.text();
+
+  //@ts-ignore;
+  const template = Handlebars.compile(result);
+  const html = template(favorites);
+  document.querySelector("#myFavorites").innerHTML = html;
 };

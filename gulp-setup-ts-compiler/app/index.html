@@ -8,10 +8,15 @@
       integrity="sha512-RNLkV3d+aLtfcpEyFG8jRbnWHxUqVZozacROI4J2F1sTaDqo1dPQYs01OMi1t1w9Y2FdbSCDSQ2ZVdAC8bzgAg=="
       crossorigin="anonymous"
     ></script>
-    <script id="template" type="text/x-handlebars-templace"></script>
+    <script id="template" type="text/x-handlebars-template"></script>
+    <script id="myLibrary" type="text/x-handlebars-template"></script>
     <script src="js/dist/app.js" defer></script>
   </head>
   <body>
+    <header>
+      <nav><a href="#favorites">My Library</a></nav>
+    </header>
+
     <h1 class="appName">BooKlub</h1>
     <form>
       <label for="author">Author:</label>
@@ -31,6 +36,10 @@
       />
       <input type="submit" id="submit" value="submit" />
     </form>
-    <ul></ul>
+    <ul id="searchResults"></ul>
+    <section id="favorites">
+      <h1>My Library</h1>
+      <ul id="myFavorites"></ul>
+    </section>
   </body>
 </html>
