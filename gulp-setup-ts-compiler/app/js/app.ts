@@ -47,8 +47,8 @@ const addToLibrary = () => {
   let btn = document.querySelectorAll<HTMLElement>(".add");
   btn.forEach((button) => {
     button.addEventListener("click", (event: Event) => {
-      if ((event.target as Element).textContent !== "Added") {
-        (event.target as Element).textContent = "Added";
+      if ((event.target as Element).textContent !== "added") {
+        (event.target as Element).textContent = "added";
         favorites.data.push({
           cover_i: (event.target as Element).parentNode
             .querySelector("img")

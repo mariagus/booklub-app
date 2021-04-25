@@ -49,6 +49,8 @@ nav a {
 
 .myLibTitle {
   display: none;
+  font-size: 2rem;
+  padding: 1rem;
 }
 
 ul {
@@ -77,8 +79,12 @@ input {
   border-style: none;
 }
 
-.add {
+.add,
+.delete {
+  margin: 0.5rem;
+  font-family: "Poiret One", sans-serif;
   padding: 1rem;
+  font-size: 1.2rem;
 }
 
 .bookCoverContainer {

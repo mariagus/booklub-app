@@ -84,8 +84,8 @@ var addToLibrary = function () {
     var btn = document.querySelectorAll(".add");
     btn.forEach(function (button) {
         button.addEventListener("click", function (event) {
-            if (event.target.textContent !== "Added") {
-                event.target.textContent = "Added";
+            if (event.target.textContent !== "added") {
+                event.target.textContent = "added";
                 favorites.data.push({
                     cover_i: event.target.parentNode
                         .querySelector("img")
