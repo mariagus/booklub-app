@@ -8,6 +8,9 @@
     <h2 class="author">by {{author_name}}</h2>
     <h2 class="firstPublished">First published: {{first_publish_year}}</h2>
     <button class="add">Add to Library</button>
+    {{#if isbn}}
+    <a class="goodreads" href="https://www.goodreads.com/search?q={{isbn.[0]}}">goodreads</a>
+    {{/if}}
 </li>
      {{/if}}
 {{/each}}
